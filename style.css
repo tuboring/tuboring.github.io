@@ -1,0 +1,22 @@
+﻿form{
+	width: 600px;
+	margin: auto;
+}
+.one{
+	padding: 0px 15px 0px 15px;
+	text-align:  left;
+}
+.no{
+	display: none;
+}
+table{
+	border-collapse: collapse;
+}
+tr,td{
+	text-align: center;
+}
+input{
+	width: 90px;
+	margin-left: 100px;
+	margin-top: 10px;
+}

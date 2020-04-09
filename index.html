@@ -1,152 +1,81 @@
-<html>
+п»ї<html>
 <head>
-   <style type="text/css">
-    .qe {
-	left: 30%;  width: 500; height: 450;
-	border: solid 1px black; 
-	position: absolute;
-	}
-	img {
-		float:right;
-		top:17%; left:55%;
-		position: absolute;
-		width: 200; height: 200;
-	}
-	.qw {
-		left:5%;
-		position: absolute;
-	}
-	.qr {
-	top:73%; left:8%;
-		position: absolute;
-	}
-	.qt {
-		left:10%;
-	}
-	.qu {
-		left:29%;
-		top:73%;
-		position: absolute;
-	}
-	#sum1     {
-		left:17%;
-		top:77%;
-	position: absolute;
-	resize: none;
-	}
-	#qy {
-		left:40%;
-		top:91%;
-		width:100px;
-		height:25px;
-		font-weight:bold;
-	position: absolute;
-	}
-</style> 
+<title>9 Р»Р°Р±Р°</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="style.css">
 </head>
-<script type="text/javascript">
-var arr = [369, 349, 189, 179, 299, 149, 199];
-
-function Delete(it, ch)
-{
-	var sum1 = Number(document.getElementById('sum1').innerHTML);
-	var check = document.getElementsByName("check");
-	var img=document.getElementById("z");
-	
-	if(it)
-	{
-		document.getElementById('sum1').innerHTML = sum1;
-		img.src= String(ch.id)  + ".jpg";
-	}
-	else
-	{
-		var i = check.length-1; 
-		var flag=true;
-		while(flag && i!=-1){
-			img.src = "w.png";
-			if(check[i].checked)
-			{
-				img.src = String(check[i].id) + ".jpg";
-				flag = false;
-			}
-			i--;
-		}
-	}
-	var sum=0;
-	for(var i=0; i<check.length; i++){
-		if(check[i].checked)
-			{
-				sum += arr[i];
-			}
-	}
-	document.getElementById("sum1").value  =sum;
-}
-
-function zakaz()
-{
-	var stroka="";
-	var stroka1="";
-	var sum1 = Number(document.getElementById('sum1').value);
-
-	if(menu.q1.checked)
-	{
-		stroka="Фаршированная форель : "+arr[0]+" руб.";		
-	}
-	if(menu.q2.checked)
-	{
-		stroka+="\nТелятина под соусом : "+arr[1]+" руб.";
-	}
-	if(document.menu.q3.checked)
-	{
-		stroka+="\nКрем-суп из шампиньонов : "+arr[2]+" руб.";
-	}
-	if(document.menu.q4.checked)
-	{
-		stroka+="\nРулет со шпинатом : "+arr[3]+" руб.";
-	}
-	if(document.menu.q5.checked)
-	{
-		stroka+="\nПицца Гавайская : "+arr[4]+" руб.";
-	}
-	if(document.menu.q6.checked)
-	{
-		stroka+="\nВанильный коктейль : "+arr[5]+" руб.";
-	}
-	if(document.menu.q7.checked)
-	{
-		stroka+="\nНапиток Грейпфрут : "+arr[6]+" руб.";
-	}	
-	if(Number(document.getElementById('sum1').value)==0)
-	{
-		stroka1+="Вы не выбрали ни одного блюда!";
-		alert(stroka1);
-	}
-	else
-	{
-		stroka+="\nСумма: "+sum1+" руб.";
-		stroka+="\nЗаказ успешно принят!";
-		alert(stroka);
-	}
-}
-</script>
 <body>
-<form name = "menu" method="POST">
-<div class="qe">
-<p><h1 align="center">Сделайте заказ</h1></p>
-<div class="qw">
-	<p><input id='q1' name="check"  type="checkbox"  onClick = 'Delete(this.checked,  document.getElementById("q1"))'>Фаршированная форель </p>
-    <p><input id='q2' name="check"  type="checkbox"  onClick = 'Delete(this.checked,  document.getElementById("q2"))'>Телятина под соусом </p>
-    <p><input id='q3' name="check"  type="checkbox"  onClick = 'Delete(this.checked, document.getElementById("q3"))'>Крем-суп из шампиньонов </p>
-    <p><input id='q4' name="check"  type="checkbox"  onClick = 'Delete(this.checked,  document.getElementById("q4"))'>Рулет со шпинатом </p>
-    <p><input id='q5' name="check"  type="checkbox"  onClick = 'Delete(this.checked,  document.getElementById("q5"))'>Пицца Гавайская</p>
-	<p><input id='q6' name="check"  type="checkbox"  onClick = 'Delete(this.checked,  document.getElementById("q6"))'>Ванильный коктейль </p>
-	<p><input id='q7' name="check"  type="checkbox"  onClick = 'Delete(this.checked,  document.getElementById("q7"))'>Напиток Грейпфрут 
-</div>
-<p class="qr">Счет</p><textarea id = "sum1" cols="5" rows="1" disabled>0</textarea><p class="qu">руб.</p>
-<p><button id="qy" type="button" onClick="zakaz();">Заказать</button></p>
-<img src="w.png" id="z"> 
-</div>
-</script>
+<form name="forma">
+<table border>
+<tr><td class="one" onmouseover="ap1()" onmouseout="p()">РЎР»РѕРЅ
+<td rowspan="5" width="400" height="405">
+<img src="osn.jpg" width="400">
+<img src="slo.jpg" class="no">
+<img src="nos.jpg" class="no">
+<img src="lem.jpg" class="no">
+<img src="ant.jpg" class="no">
+<img src="lev.jpg" class="no">
+</tr>
+<tr><td class="one" onmouseover="ap2()" onmouseout="p()">РќРѕСЃРѕСЂРѕРі</tr>
+<tr><td class="one" onmouseover="ap3()" onmouseout="p()">Р›РµРјСѓСЂ</tr>
+<tr><td class="one" onmouseover="ap4()" onmouseout="p()">РђРЅС‚РёР»РѕРїР°</tr>
+<tr><td class="one" onmouseover="ap5()" onmouseout="p()">Р›РµРІ</tr>
+</table>
+<input onClick="tap()" type=button value="РџРѕРєР°Р·Р°С‚СЊ">
+<input onclick="stop()" type=button value="РћСЃС‚Р°РЅРѕРІРёС‚СЊ">
 </form>
+<script type="text/javascript">
+var pic = document.getElementsByTagName('img');
+function ap1(){
+stop();
+pic[0].style.display='none';
+pic[1].style.display='block';
+}
+function ap2(){
+stop();
+pic[0].style.display='none';
+pic[2].style.display='block';
+}
+function ap3(){
+stop();
+pic[0].style.display='none';
+pic[3].style.display='block';
+}
+function ap4(){
+stop();
+pic[0].style.display='none';
+pic[4].style.display='block';
+}
+function ap5(){
+stop();
+pic[0].style.display='none';
+pic[5].style.display='block';
+}
+function p(){
+pic[0].style.display='block';
+for(var i=1;  i<=pic.length; i++)
+pic[i].style.display='none';
+}
+
+var a=1; var b=0;
+		function times() {			
+			pic[b].style.display='none';
+			pic[a].style.display='block';
+			if (a==5) a=1;
+			else a++;
+			if (b==5) b=1;
+			else b++;
+		}
+		var timer;
+		function tap() {
+			timer = setInterval(times, 1000);
+		}
+		function stop() {
+			clearInterval(timer);
+			pic[b].style.display='none';
+			pic[0].style.display='block';
+			a=1; b=0;
+		}
+</script>
 </body>
 </html>
