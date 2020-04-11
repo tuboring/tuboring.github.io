@@ -1,81 +1,104 @@
-﻿<html>
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-<title>КЕК</title>
-<meta charset="utf-8">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Пазлы</title>
+  <style>
+    body {
+      padding: 5px;
+    }
+    .row {
+      display: flex;
+      height: 150px;
+	  justify-content: center;
+    }
+    .col {
+      width: 150px;
+      border: 1px solid #000;
+    }
+    .images img {
+      width: 100px;
+      border: 1px solid #000;
+    }
+  </style>
 </head>
 <body>
-<form name="forma">
-<table border>
-<tr><td class="one" onmouseover="ap1()" onmouseout="p()">Слон
-<td rowspan="5" width="400" height="405">
-<img src="osn.jpg" width="400">
-<img src="slo.jpg" class="no">
-<img src="nos.jpg" class="no">
-<img src="lem.jpg" class="no">
-<img src="ant.jpg" class="no">
-<img src="lev.jpg" class="no">
-</tr>
-<tr><td class="one" onmouseover="ap2()" onmouseout="p()">Носорог</tr>
-<tr><td class="one" onmouseover="ap3()" onmouseout="p()">Лемур</tr>
-<tr><td class="one" onmouseover="ap4()" onmouseout="p()">Антилопа</tr>
-<tr><td class="one" onmouseover="ap5()" onmouseout="p()">Лев</tr>
-</table>
-<input onClick="tap()" type=button value="Показать">
-<input onclick="stop()" type=button value="Остановить">
-</form>
-<script type="text/javascript">
-var pic = document.getElementsByTagName('img');
-function ap1(){
-stop();
-pic[0].style.display='none';
-pic[1].style.display='block';
-}
-function ap2(){
-stop();
-pic[0].style.display='none';
-pic[2].style.display='block';
-}
-function ap3(){
-stop();
-pic[0].style.display='none';
-pic[3].style.display='block';
-}
-function ap4(){
-stop();
-pic[0].style.display='none';
-pic[4].style.display='block';
-}
-function ap5(){
-stop();
-pic[0].style.display='none';
-pic[5].style.display='block';
-}
-function p(){
-pic[0].style.display='block';
-for(var i=1;  i<=pic.length; i++)
-pic[i].style.display='none';
-}
+  <div class="puzzle">
+    <div class="row">
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+    </div>
+    <div class="row">
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+    </div>
+    <div class="row">
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+    </div>
+    <div class="row">
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+    </div>
+  </div>
+  <p>Собери картинку из фрагментов:</p>
+  <div class="images">
+      <img id="slice_0_0" draggable="true" src="images/slice_0_0.jpg">
+      <img id="slice_0_1" draggable="true" src="images/slice_0_1.jpg">
+      <img id="slice_0_2" draggable="true" src="images/slice_0_2.jpg">
+      <img id="slice_0_3" draggable="true" src="images/slice_0_3.jpg">
+      <img id="slice_1_0" draggable="true" src="images/slice_1_0.jpg">
+      <img id="slice_1_1" draggable="true" src="images/slice_1_1.jpg">
+      <img id="slice_1_2" draggable="true" src="images/slice_1_2.jpg">
+      <img id="slice_1_3" draggable="true" src="images/slice_1_3.jpg">
+      <img id="slice_2_0" draggable="true" src="images/slice_2_0.jpg">
+      <img id="slice_2_1" draggable="true" src="images/slice_2_1.jpg">
+      <img id="slice_2_2" draggable="true" src="images/slice_2_2.jpg">
+      <img id="slice_2_3" draggable="true" src="images/slice_2_3.jpg">
+      <img id="slice_3_0" draggable="true" src="images/slice_3_0.jpg">
+      <img id="slice_3_1" draggable="true" src="images/slice_3_1.jpg">
+      <img id="slice_3_2" draggable="true" src="images/slice_3_2.jpg">
+      <img id="slice_3_3" draggable="true" src="images/slice_3_3.jpg">
+      
+  </div>
+  <script>
+    {
+      const dragstart = function(event) {
+        event.dataTransfer.setData("text", event.target.id);
+      };
+      const dragover = function(event) {
+        if(event.target.nodeName.toLowerCase() === "img") {
+          return true;
+        }
+        event.preventDefault();
+      }
+      const drop = function(event) {
+        event.preventDefault();
+        let imageId = event.dataTransfer.getData("text");
+        event.target.appendChild(document.getElementById(imageId));
+      };
 
-var a=1; var b=0;
-		function times() {			
-			pic[b].style.display='none';
-			pic[a].style.display='block';
-			if (a==5) a=1;
-			else a++;
-			if (b==5) b=1;
-			else b++;
-		}
-		var timer;
-		function tap() {
-			timer = setInterval(times, 1000);
-		}
-		function stop() {
-			clearInterval(timer);
-			pic[b].style.display='none';
-			pic[0].style.display='block';
-			a=1; b=0;
-		}
-</script>
+      const cells = document.getElementsByClassName("col");
+      Array.from(cells).forEach((element) => {
+        element.addEventListener('dragover',dragover);
+        element.addEventListener('drop',drop);
+      });      
+
+      const images = document.getElementsByTagName("img");
+      Array.from(images).forEach((element) => {
+        element.addEventListener('dragstart',dragstart);
+      });
+    }
+  </script>
 </body>
 </html>
