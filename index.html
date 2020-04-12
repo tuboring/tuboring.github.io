@@ -9,69 +9,96 @@
     body {
       padding: 5px;
     }
+	h1 {
+      text-align:center;
+    }
     .row {
       display: flex;
-      height: 200px;
+      height: 100px;
 	  justify-content: center;
     }
     .col {
-      width: 200px;
+      width: 100px;
       border: 1px solid #000;
     }
     .images img {
       width: 100px;
       border: 1px solid #000;
+	  
     }
+
   </style>
 </head>
 <body>
+<h1>Пазлы</h1>
+<div class="parrent"> 
   <div class="puzzle">
     <div class="row">
-      <div class="col"></div>
-      <div class="col"></div>
-      <div class="col"></div>
-      <div class="col"></div>
+      <div class="col" id="0_0"></div>
+      <div class="col" id="0_1"></div>
+      <div class="col" id="0_2"></div>
+      <div class="col" id="0_3"></div>
+	  <div class="col" id="0_4"></div>
     </div>
     <div class="row">
-      <div class="col"></div>
-      <div class="col"></div>
-      <div class="col"></div>
-      <div class="col"></div>
+      <div class="col" id="1_0"></div>
+      <div class="col" id="1_1"></div>
+      <div class="col" id="1_2"></div>
+      <div class="col" id="1_3"></div>
+	  <div class="col" id="1_4"></div>
     </div>
     <div class="row">
-      <div class="col"></div>
-      <div class="col"></div>
-      <div class="col"></div>
-      <div class="col"></div>
+      <div class="col" id="2_0"></div>
+      <div class="col" id="2_1"></div>
+      <div class="col" id="2_2"></div>
+      <div class="col" id="2_3"></div>
+	  <div class="col" id="2_4"></div>
     </div>
     <div class="row">
-      <div class="col"></div>
-      <div class="col"></div>
-      <div class="col"></div>
-      <div class="col"></div>
+      <div class="col" id="3_0"></div>
+      <div class="col" id="3_1"></div>
+      <div class="col" id="3_2"></div>
+      <div class="col" id="3_3"></div>
+	  <div class="col" id="3_4"></div>
+    </div>
+	<div class="row">
+      <div class="col" id="4_0"></div>
+      <div class="col" id="4_1"></div>
+      <div class="col" id="4_2"></div>
+      <div class="col" id="4_3"></div>
+	  <div class="col" id="4_4"></div>
     </div>
   </div>
-  <p>Собери картинку из фрагментов:</p>
+  <p></p>
   <div class="images">
-      <img id="slice_0_0" draggable="true" src="images/slice_0_0.jpg">
-      <img id="slice_0_1" draggable="true" src="images/slice_0_1.jpg">
-      <img id="slice_0_2" draggable="true" src="images/slice_0_2.jpg">
-      <img id="slice_0_3" draggable="true" src="images/slice_0_3.jpg">
-      <img id="slice_1_0" draggable="true" src="images/slice_1_0.jpg">
-      <img id="slice_1_1" draggable="true" src="images/slice_1_1.jpg">
-      <img id="slice_1_2" draggable="true" src="images/slice_1_2.jpg">
-      <img id="slice_1_3" draggable="true" src="images/slice_1_3.jpg">
-      <img id="slice_2_0" draggable="true" src="images/slice_2_0.jpg">
-      <img id="slice_2_1" draggable="true" src="images/slice_2_1.jpg">
-      <img id="slice_2_2" draggable="true" src="images/slice_2_2.jpg">
-      <img id="slice_2_3" draggable="true" src="images/slice_2_3.jpg">
-      <img id="slice_3_0" draggable="true" src="images/slice_3_0.jpg">
-      <img id="slice_3_1" draggable="true" src="images/slice_3_1.jpg">
-      <img id="slice_3_2" draggable="true" src="images/slice_3_2.jpg">
-      <img id="slice_3_3" draggable="true" src="images/slice_3_3.jpg">
-      
+        <img id="slice_2_1" draggable="true" src="images/slice_2_1.jpg">
+		<img id="slice_3_4" draggable="true" src="images/slice_3_4.jpg">
+		<img id="slice_0_3" draggable="true" src="images/slice_0_3.jpg">
+		<img id="slice_0_0" draggable="true" src="images/slice_0_0.jpg">
+		<img id="slice_1_4" draggable="true" src="images/slice_1_4.jpg">
+		<img id="slice_1_2" draggable="true" src="images/slice_1_2.jpg">
+		<img id="slice_1_3" draggable="true" src="images/slice_1_3.jpg">
+		<img id="slice_3_1" draggable="true" src="images/slice_3_1.jpg">
+		<img id="slice_3_3" draggable="true" src="images/slice_3_3.jpg">
+		<img id="slice_4_0" draggable="true" src="images/slice_4_0.jpg">
+		<img id="slice_2_4" draggable="true" src="images/slice_2_4.jpg">
+		<img id="slice_1_0" draggable="true" src="images/slice_1_0.jpg">
+		<img id="slice_3_2" draggable="true" src="images/slice_3_2.jpg">
+		<img id="slice_0_2" draggable="true" src="images/slice_0_2.jpg">
+		<img id="slice_4_2" draggable="true" src="images/slice_4_2.jpg">
+		<img id="slice_0_4" draggable="true" src="images/slice_0_4.jpg">
+		<img id="slice_2_2" draggable="true" src="images/slice_2_2.jpg">
+		<img id="slice_4_3" draggable="true" src="images/slice_4_3.jpg">
+		<img id="slice_0_1" draggable="true" src="images/slice_0_1.jpg">
+		<img id="slice_3_0" draggable="true" src="images/slice_3_0.jpg">
+		<img id="slice_1_1" draggable="true" src="images/slice_1_1.jpg">
+		<img id="slice_4_4" draggable="true" src="images/slice_4_4.jpg">
+		<img id="slice_2_0" draggable="true" src="images/slice_2_0.jpg">
+		<img id="slice_2_3" draggable="true" src="images/slice_2_3.jpg">
+		<img id="slice_4_1" draggable="true" src="images/slice_4_1.jpg">		
   </div>
-  <script>
+ </div>
+<script>
     {
       const dragstart = function(event) {
         event.dataTransfer.setData("text", event.target.id);
