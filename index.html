@@ -1,131 +1,445 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Пазлы</title>
-  <style>
-    body {
-      padding: 5px;
-    }
-	h1 {
-      text-align:center;
-    }
-    .row {
-      display: flex;
-      height: 100px;
-	  justify-content: center;
-    }
-    .col {
-      width: 100px;
-      border: 1px solid #000;
-    }
-    .images img {
-      width: 100px;
-      border: 1px solid #000;
-	  
-    }
-
-  </style>
-</head>
-<body>
-<h1>Пазлы</h1>
-<div class="parrent"> 
-  <div class="puzzle">
-    <div class="row">
-      <div class="col" id="0_0"></div>
-      <div class="col" id="0_1"></div>
-      <div class="col" id="0_2"></div>
-      <div class="col" id="0_3"></div>
-	  <div class="col" id="0_4"></div>
-    </div>
-    <div class="row">
-      <div class="col" id="1_0"></div>
-      <div class="col" id="1_1"></div>
-      <div class="col" id="1_2"></div>
-      <div class="col" id="1_3"></div>
-	  <div class="col" id="1_4"></div>
-    </div>
-    <div class="row">
-      <div class="col" id="2_0"></div>
-      <div class="col" id="2_1"></div>
-      <div class="col" id="2_2"></div>
-      <div class="col" id="2_3"></div>
-	  <div class="col" id="2_4"></div>
-    </div>
-    <div class="row">
-      <div class="col" id="3_0"></div>
-      <div class="col" id="3_1"></div>
-      <div class="col" id="3_2"></div>
-      <div class="col" id="3_3"></div>
-	  <div class="col" id="3_4"></div>
-    </div>
-	<div class="row">
-      <div class="col" id="4_0"></div>
-      <div class="col" id="4_1"></div>
-      <div class="col" id="4_2"></div>
-      <div class="col" id="4_3"></div>
-	  <div class="col" id="4_4"></div>
-    </div>
-  </div>
-  <p></p>
-  <div class="images">
-        <img id="slice_2_1" draggable="true" src="images/slice_2_1.jpg">
-		<img id="slice_3_4" draggable="true" src="images/slice_3_4.jpg">
-		<img id="slice_0_3" draggable="true" src="images/slice_0_3.jpg">
-		<img id="slice_0_0" draggable="true" src="images/slice_0_0.jpg">
-		<img id="slice_1_4" draggable="true" src="images/slice_1_4.jpg">
-		<img id="slice_1_2" draggable="true" src="images/slice_1_2.jpg">
-		<img id="slice_1_3" draggable="true" src="images/slice_1_3.jpg">
-		<img id="slice_3_1" draggable="true" src="images/slice_3_1.jpg">
-		<img id="slice_3_3" draggable="true" src="images/slice_3_3.jpg">
-		<img id="slice_4_0" draggable="true" src="images/slice_4_0.jpg">
-		<img id="slice_2_4" draggable="true" src="images/slice_2_4.jpg">
-		<img id="slice_1_0" draggable="true" src="images/slice_1_0.jpg">
-		<img id="slice_3_2" draggable="true" src="images/slice_3_2.jpg">
-		<img id="slice_0_2" draggable="true" src="images/slice_0_2.jpg">
-		<img id="slice_4_2" draggable="true" src="images/slice_4_2.jpg">
-		<img id="slice_0_4" draggable="true" src="images/slice_0_4.jpg">
-		<img id="slice_2_2" draggable="true" src="images/slice_2_2.jpg">
-		<img id="slice_4_3" draggable="true" src="images/slice_4_3.jpg">
-		<img id="slice_0_1" draggable="true" src="images/slice_0_1.jpg">
-		<img id="slice_3_0" draggable="true" src="images/slice_3_0.jpg">
-		<img id="slice_1_1" draggable="true" src="images/slice_1_1.jpg">
-		<img id="slice_4_4" draggable="true" src="images/slice_4_4.jpg">
-		<img id="slice_2_0" draggable="true" src="images/slice_2_0.jpg">
-		<img id="slice_2_3" draggable="true" src="images/slice_2_3.jpg">
-		<img id="slice_4_1" draggable="true" src="images/slice_4_1.jpg">		
-  </div>
- </div>
-<script>
-    {
-      const dragstart = function(event) {
-        event.dataTransfer.setData("text", event.target.id);
-      };
-      const dragover = function(event) {
-        if(event.target.nodeName.toLowerCase() === "img") {
-          return true;
-        }
-        event.preventDefault();
-      }
-      const drop = function(event) {
-        event.preventDefault();
-        let imageId = event.dataTransfer.getData("text");
-        event.target.appendChild(document.getElementById(imageId));
-      };
-
-      const cells = document.getElementsByClassName("col");
-      Array.from(cells).forEach((element) => {
-        element.addEventListener('dragover',dragover);
-        element.addEventListener('drop',drop);
-      });      
-
-      const images = document.getElementsByTagName("img");
-      Array.from(images).forEach((element) => {
-        element.addEventListener('dragstart',dragstart);
-      });
-    }
-  </script>
-</body>
-</html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Пазлы</title>
+		<style>
+			body {
+			padding: 5px;
+			background: url(images/background.jpg);
+			}
+			.row {
+			display: flex;
+			height: 100px;
+			justify-content: center;
+			}
+			.col {
+			width: 100px;
+			border-top: 0px solid #000;
+			border-left: 0px solid #000;
+			background-color: #DEE2E5;
+			background-image: 
+			linear-gradient(transparent 99px, white 99px), 
+			linear-gradient(90deg, transparent 99px, white 99px), 
+			linear-gradient(transparent 19px, rgba(255, 255, 255, 0.3) 19px), 
+			linear-gradient(90deg, transparent 19px, rgba(255, 255, 255, 0.3) 19px);
+			background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+			}
+			.row :last-child {
+			width: 100px;
+			border-right: 0px solid #000;
+			border-left: 0px solid #000;
+			border-top: 0px solid #000;
+			background-color: #DEE2E5;
+			background-image: 
+			linear-gradient(transparent 99px, white 99px), 
+			linear-gradient(90deg, transparent 99px, white 99px), 
+			linear-gradient(transparent 19px, rgba(255, 255, 255, 0.3) 19px), 
+			linear-gradient(90deg, transparent 19px, rgba(255, 255, 255, 0.3) 19px);
+			background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+			}
+			.images1 {
+			
+			float: left;
+			border: 0px solid #000;
+			display: inline-block;
+			vertical-align: middle;
+			text-align: center;
+			\background:green;
+			}
+			.images1 img {
+			width: 100px;
+			border: 0px solid #000;
+			
+			}
+			.images2 {
+			float: left;
+			display: inline-block;
+			vertical-align: middle;
+			text-align: center;
+			border: 0px solid #000;
+			}
+			.images2 img {
+			width: 100px;
+			border: 0px solid #000;	  
+			}
+			.puzzle {			
+			border-bottom: 1px solid #000;
+			height: 500px;
+			width: 500px;
+			float: left;
+			}
+			.main {
+			margin: auto;
+			width: 100%;
+			border: 0px solid #000;
+			display: flex;
+			align-items: center;
+			justify-content: center
+			}
+			.button-container {
+			text-align: center;
+			\background:blue;
+			}
+			.button-container a {
+			width: 160px;
+			height: 22px;
+			background-color: #fffbcc;
+			text-decoration: none;
+			outline: none;
+			color: #f7b100;
+			display: inline-block;
+			position: relative;
+			padding: 15px 35px;
+			border: 4px solid;
+			margin: 20px 20px;   
+			font-family: 'Mistral';
+			font-weight: 1000;
+			text-transform: uppercase;
+			overflow: hidden;
+			letter-spacing: 3px;
+			transition: .8s cubic-bezier(.165,.84,.44,1);
+			border-radius: 10px; 
+			font-size: 20px;
+			}
+			.button-container a:before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 0;
+			width: 100%;
+			z-index: -1;
+			color: white;
+			background: linear-gradient(180deg, #ff3000, #ed0200, #ff096c, #d50082);
+			transition: .8s cubic-bezier(.165,.84,.44,1);
+			border-radius: 10px; 
+			}
+			a:hover {
+			background: rgba(255,255,255,0);
+			border-radius: 10px; }
+			
+			a:hover:before {
+			bottom: 0%;
+			top: auto;
+			height: 100%;
+			border-radius: 10px; 
+			}
+			@import "https://fonts.googleapis.com/css?family=Hammersmith+One";
+			svg{display:none}
+			.svg-p{
+			font-size:60px;
+			-webkit-text-stroke:2px #000;
+			font-family:FredokaOne-Regular;
+			color:#A6540D;
+			margin:0;
+			}
+			.two{filter:url(#displacementFilter);
+			padding:20px 40px;
+			background-image:linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(255,171,0,1) 0%, rgba(255,215,64,1) 50%, rgba(255,215,64,1) 100%);
+			border:3px solid #000;
+			box-shadow: 7px 7px 7px 2px rgba(0,0,0,0.69);
+			border-radius:20px}
+			.feerverk {
+			width: 100%;
+			\height:300px;
+			\background:#000;
+			}
+			.part1 {
+			width: 550px;
+			height: 500px;
+			\background:red;
+			vertical-align: top;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<svg>
+			<filter id="displacementFilter">
+				<feTurbulence type="turbulence" baseFrequency="0.04" numOctaves="2" result="turbulence"></feTurbulence>
+				<feDisplacementMap in2="turbulence" in="SourceGraphic" scale="6" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+			</filter>
+		</svg>
+		<div class="two">
+			<marquee class="svg-p" id="begtext" scrollamount = "20">Пазлы</marquee>
+		</div>
+		<p></p>
+		<div class="main">
+			<div class="part1">
+				<div class="button-container">
+					<a href="">Начать заного</a>
+				</div>
+				<div class="images1">
+					<img id="slice_0_2" draggable="true" src="images/slice_0_2.jpg">
+					<img id="slice_4_2" draggable="true" src="images/slice_4_2.jpg">
+					<img id="slice_0_4" draggable="true" src="images/slice_0_4.jpg">
+					<img id="slice_2_2" draggable="true" src="images/slice_2_2.jpg">
+					<img id="slice_4_3" draggable="true" src="images/slice_4_3.jpg">
+					<img id="slice_0_1" draggable="true" src="images/slice_0_1.jpg">
+					<img id="slice_3_0" draggable="true" src="images/slice_3_0.jpg">
+					<img id="slice_1_1" draggable="true" src="images/slice_1_1.jpg">
+					<img id="slice_4_4" draggable="true" src="images/slice_4_4.jpg">
+					<img id="slice_2_0" draggable="true" src="images/slice_2_0.jpg">
+					<img id="slice_2_3" draggable="true" src="images/slice_2_3.jpg">
+					<img id="slice_4_1" draggable="true" src="images/slice_4_1.jpg">
+					<img id="slice_2_1" draggable="true" src="images/slice_2_1.jpg">
+					<div class="row">
+						<div class="col" id="zapaska"></div>
+					</div>
+				</div>
+			</div>
+			<div class="puzzle">				
+				<div class="row">
+					<div class="col" id="0_0"></div>
+					<div class="col" id="0_1"></div>
+					<div class="col" id="0_2"></div>
+					<div class="col" id="0_3"></div>
+					<div class="col" id="0_4"></div>
+				</div>
+				<div class="row">
+					<div class="col" id="1_0"></div>
+					<div class="col" id="1_1"></div>
+					<div class="col" id="1_2"></div>
+					<div class="col" id="1_3"></div>
+					<div class="col" id="1_4"></div>
+				</div>
+				<div class="row">
+					<div class="col" id="2_0"></div>
+					<div class="col" id="2_1"></div>
+					<div class="col" id="2_2"></div>
+					<div class="col" id="2_3"></div>
+					<div class="col" id="2_4"></div>
+				</div>
+				<div class="row">
+					<div class="col" id="3_0"></div>
+					<div class="col" id="3_1"></div>
+					<div class="col" id="3_2"></div>
+					<div class="col" id="3_3"></div>
+					<div class="col" id="3_4"></div>
+				</div>
+				<div class="row">
+					<div class="col" id="4_0"></div>
+					<div class="col" id="4_1"></div>
+					<div class="col" id="4_2"></div>
+					<div class="col" id="4_3"></div>
+					<div class="col" id="4_4"></div>
+				</div>
+				<p></p>
+				
+			</div>		
+			<div class="part1">
+				<div class="button-container">
+					<a onclick="CheckCorrect()">Проверить</a>
+				</div>
+				<div class="images2">
+					<img id="slice_3_4" draggable="true" src="images/slice_3_4.jpg">
+					<img id="slice_0_3" draggable="true" src="images/slice_0_3.jpg">
+					<img id="slice_0_0" draggable="true" src="images/slice_0_0.jpg">
+					<img id="slice_1_4" draggable="true" src="images/slice_1_4.jpg">
+					<img id="slice_1_2" draggable="true" src="images/slice_1_2.jpg">
+					<img id="slice_1_3" draggable="true" src="images/slice_1_3.jpg">
+					<img id="slice_3_1" draggable="true" src="images/slice_3_1.jpg">
+					<img id="slice_3_3" draggable="true" src="images/slice_3_3.jpg">
+					<img id="slice_4_0" draggable="true" src="images/slice_4_0.jpg">
+					<img id="slice_2_4" draggable="true" src="images/slice_2_4.jpg">
+					<img id="slice_1_0" draggable="true" src="images/slice_1_0.jpg">
+					<img id="slice_3_2" draggable="true" src="images/slice_3_2.jpg">		
+				</div>
+			</div>
+		</div>
+		<canvas class="feerverk" id="fireworks-canvas"></canvas>
+	</body>
+	<script src="js/fireworks.js"></script>
+	<script>
+		{
+		const dragstart = function(event) {
+			event.dataTransfer.setData("text", event.target.id);
+		};
+		const dragover = function(event) {
+			if(event.target.nodeName.toLowerCase() === "img") {
+				return true;
+			}
+			event.preventDefault();
+		}
+		const drop = function(event) {
+			event.preventDefault();
+			let imageId = event.dataTransfer.getData("text");
+			event.target.appendChild(document.getElementById(imageId));
+		};
+		
+		const cells = document.getElementsByClassName("col");
+		Array.from(cells).forEach((element) => {
+			element.addEventListener('dragover',dragover);
+			element.addEventListener('drop',drop);
+		});      
+		
+		const images = document.getElementsByTagName("img");
+		Array.from(images).forEach((element) => {
+			element.addEventListener('dragstart',dragstart);
+		});
+		
+		function CheckCorrect() {
+			
+			if (document.getElementById('0_0').firstChild.id != "slice_0_0") {alert( 'Неверно в поле: ' + document.getElementById('0_0').id);}
+			else if (document.getElementById('0_1').firstChild.id != "slice_0_1") {alert( 'Неверно в поле: ' + document.getElementById('0_1').id);}
+			else if (document.getElementById('0_2').firstChild.id != "slice_0_2") {alert( 'Неверно в поле: ' + document.getElementById('0_2').id);}
+			else if (document.getElementById('0_3').firstChild.id != "slice_0_3") {alert( 'Неверно в поле: ' + document.getElementById('0_3').id);}
+			else if (document.getElementById('0_4').firstChild.id != "slice_0_4") {alert( 'Неверно в поле: ' + document.getElementById('0_4').id);}
+			
+			else if (document.getElementById('1_0').firstChild.id != "slice_1_0") {alert( 'Неверно в поле: ' + document.getElementById('1_0').id);}
+			else if (document.getElementById('1_1').firstChild.id != "slice_1_1") {alert( 'Неверно в поле: ' + document.getElementById('1_1').id);}
+			else if (document.getElementById('1_2').firstChild.id != "slice_1_2") {alert( 'Неверно в поле: ' + document.getElementById('1_2').id);}
+			else if (document.getElementById('1_3').firstChild.id != "slice_1_3") {alert( 'Неверно в поле: ' + document.getElementById('1_3').id);}
+			else if (document.getElementById('1_4').firstChild.id != "slice_1_4") {alert( 'Неверно в поле: ' + document.getElementById('1_4').id);}
+			
+			else if (document.getElementById('2_0').firstChild.id != "slice_2_0") {alert( 'Неверно в поле: ' + document.getElementById('2_0').id);}
+			else if (document.getElementById('2_1').firstChild.id != "slice_2_1") {alert( 'Неверно в поле: ' + document.getElementById('2_1').id);}
+			else if (document.getElementById('2_2').firstChild.id != "slice_2_2") {alert( 'Неверно в поле: ' + document.getElementById('2_2').id);}
+			else if (document.getElementById('2_3').firstChild.id != "slice_2_3") {alert( 'Неверно в поле: ' + document.getElementById('2_3').id);}
+			else if (document.getElementById('2_4').firstChild.id != "slice_2_4") {alert( 'Неверно в поле: ' + document.getElementById('2_4').id);}
+			
+			else if (document.getElementById('3_0').firstChild.id != "slice_3_0") {alert( 'Неверно в поле: ' + document.getElementById('3_0').id);}
+			else if (document.getElementById('3_1').firstChild.id != "slice_3_1") {alert( 'Неверно в поле: ' + document.getElementById('3_1').id);}
+			else if (document.getElementById('3_2').firstChild.id != "slice_3_2") {alert( 'Неверно в поле: ' + document.getElementById('3_2').id);}
+			else if (document.getElementById('3_3').firstChild.id != "slice_3_3") {alert( 'Неверно в поле: ' + document.getElementById('3_3').id);}
+			else if (document.getElementById('3_4').firstChild.id != "slice_3_4") {alert( 'Неверно в поле: ' + document.getElementById('3_4').id);}
+			
+			else if (document.getElementById('4_0').firstChild.id != "slice_4_0") {alert( 'Неверно в поле: ' + document.getElementById('4_0').id);}
+			else if (document.getElementById('4_1').firstChild.id != "slice_4_1") {alert( 'Неверно в поле: ' + document.getElementById('4_1').id);}
+			else if (document.getElementById('4_2').firstChild.id != "slice_4_2") {alert( 'Неверно в поле: ' + document.getElementById('4_2').id);}
+			else if (document.getElementById('4_3').firstChild.id != "slice_4_3") {alert( 'Неверно в поле: ' + document.getElementById('4_3').id);}
+			else if (document.getElementById('4_4').firstChild.id != "slice_4_4") {alert( 'Неверно в поле: ' + document.getElementById('4_4').id);}
+			else {
+				document.getElementById('zapaska').style.display='none';
+				begtext.start();
+				begtext.scrollLeft = 0;
+				
+				const elements = ['азартная', 'аккуратная', 'алмазная', 'альтруистичная', 'ангельская', 'ангельски-прекрасная', 
+				'аппетитная', 'аппетитно-вкусная', 'ароматная', 'артистичная', 'аутентичная', 'беcподобная', 'безгрешная', 'беззаботная', 'безукоризненная',
+				'безупречная', 'бескорыстная', 'беспечная', 'бесподобная', 'бесподобно танцующая', 'бесценная', 'благодарная',
+				'благополучная', 'благородная', 'благословенная', 'благоуханная', 'благоухающая', 'блаженная', 'блестящая', 'блистательная', 'бодрая', 
+				'божественная', 'бойкая', 'болеутоляющая', 'бриллиантовая', 'броская', 'будоражащая', 'бурная', 'ванильная', 'ванильно-шоколадная',
+				'вдохновенная', 'вежливая', 'вездесущая', 'великая', 'великодушная', 'великолепная', 'величавая', 'верная', 'верткая', 'веселая', 'весенняя',
+				'ветреная', 'вечно молодая', 'взрывная', 'взрывоопасная', 'видная', 'вкусная', 'влюбленная', 'внимательная',
+				'возбуждающая', 'возбужденная', 'воздушная', 'возлюбленная', 'волнительная', 'волнующая', 'волшебная', 'вольная', 'восклицательная',
+				'воспламеняющая', 'восприимчивая', 'восторженная', 'восхитительная', 'впечатлительная', 'впечатляющая', 'всемогущая', 'все-понимающая',
+				'выносливая', 'выразительная', 'гармоничная', 'гармонично-ладная', 'гениальная', 'гибкая', 'гибкая и стройная',
+				'гипнотическая', 'гладенькая', 'головокружительная', 'легкокрылая', 'голубоглазая',
+				'горячая', 'гостеприимная', 'готичная', 'грандиозная', 'грациозная', 'грациозно-сексапильная', 'дальновидная', 'девственная', 'деликатесная',
+				'деликатная', 'деловая', 'дерзкая', 'дивная', 'диковинная', 'динамичная', 'дипломатичная', 'добрая', 'добрейшая', 'добродушная', 
+				'доброжелательная', 'доверчивая', 'долгожданная', 'дорогая', 'достойная', 'драгоценная', 'дружелюбная', 'дружная', 'дурманящая',
+				'душевная', 'душистая', 'единственная', 'естественная', 'жаркая', 'жгучая', 'желанная', 'жемчужная', 'женственная', 'живенькая', 
+				'живительная', 'живописная', 'жизнерадостная', 'забавная', 'заботливая', 'завлекательная', 'завлекающая', 'заводная', 'завораживающая',
+				'завораживающе-прелестная', 'загадочная', 'загорелая', 'задиристо-лукавая', 'задорная', 'зажигательная', 'зазывная', 'заманчивая', 
+				'замечательная', 'замечательнейшая', 'застенчивая', 'затейливая', 'зачарующая', 'звездная', 'зеленоглазая', 'знойная', 'зовущая', 'золотая',
+				'игривая', 'идеальная', 'изобретательная', 'изумительная', 'изумрудная', 'изысканная', 'изящная', 'импульсивная',
+				'индивидуальная', 'инициативная', 'интригующая', 'ироничная', 'исключительная', 'искренняя', 'искристая', 'искромётная', 'кайфовая',
+				'сошедшая', 'капризная', 'кареглазая', 'карнавальная', 'кипучая', 'классная', 'клубничная', 'коварная', 'коварная', 
+				'кокетливая', 'коммуникабельная', 'конфетно-мармеладная', 'восточная', 'красивая', 'красивейшая', 'красноречивая', 'креативная', 
+				'кремовая', 'крохотная', 'крылатая', 'лазурная', 'ласковая', 'лаской согревающая', 'легкая', 'лиричная', 'лихая', 'лукавая', 'лучезарная', 
+				'лучистая', 'лучшая', 'любвиобильная', 'любезная', 'любимая', 'любознательная', 'любознательно-пытливая', 'любопытная', 'магическая', 'маленькая',
+				'манящая', 'медовая', 'мелодичная', 'мечтательная', 'милая', 'миленькая', 'милосердная', 'миниатюрная', 'модная', 'мудрая', 'мужчин вдохновляющая',
+				'музыкальная', 'муррмяушная', 'мятежная', 'мяушная', 'надежная', 'насмешливая', 'настоящая', 'невозможная', 'невообразимая', 'недоступная', 
+				'нежная', 'нежнокрылая', 'незабвенная', 'незабываемая', 'незаменимая', 'незаурядная', 'неземная', 'неизученная', 'неиспорченная', 'ненаглядная',
+				'ненасытная', 'необходимая', 'необыкновенная', 'необычайная', 'необычная', 'необьяснимая', 'неописуемая', 'неординарная', 'неотразимая', 
+				'неповторимая', 'неподкупная', 'неподражаемая', 'непокорная', 'непосредственная', 'непостижимая', 'непостоянная',
+				'непревзойденная', 'непредсказуемая', 'непринужденная', 'несказанная', 'нескучная', 'неуловимая', 'неунывающая', 'неутолимая', 'неутомимая', 
+				'обалденная', 'обаятельная', 'обворожительная', 'обжигающая', 'обманчивая', 'обожаемая', 'обольстительная', 'обольстительно-любвеобильная', 
+				'образованная', 'общительная', 'оглушительная', 'огненная', 'огнеопасная', 'одаренная', 'одурманивающая', 'оживленная', 'озорная', 'окрыляющая',
+				'неунывающая', 'ослепительная', 'ослепляющая', 'осторожная', 'остроумная', 'отважная', 'отзывчивая', 'откровенная', 'открытая', 
+				'открытая', 'отменная', 'отпадная', 'отрезвляющая', 'отходчивая', 'офигенная', 'офигительная', 'очаровательная', 'очаровывающая', 
+				'ошеломительная', 'ошеломляющая', 'парящая', 'певучая', 'первоклассная', 'персиковая', 'пикантная', 'пламенная', 'пластичная', 'пленительная', 
+				'пленяющая', 'популярная', 'порхающая', 'порывистая', 'потрясающая', 'потрясная', 'поэтическая', 'поэтичная', 'прагматичная', 'праздничная', 'практичная',
+				'превосходная', 'представительная', 'прекрасная', 'прелестная', 'прельстительная', 'приветливая', 'привлекательная', 'пригожая', 'прикольная',
+				'прилежная', 'примерная', 'природой одаренная', 'притягательная', 'прихотливая', 'приятная', 'проницательная', 
+				'противоречивая', 'профессиональная', 'прямодушная', 'пушистая', 'пылкая', 'пытливая', 'пьянящая', 
+				'радушная', 'разговорчивая', 'раскованая', 'располагающая', 'редкая', 'решительная', 
+				'рисковая', 'ритмичная', 'родимая', 'родная', 'родненькая', 'роковая', 'романтичная', 'роскошная', 'рыженькая', 'самая-самая', 'самоотверженная',
+				'сахарная', 'свежая', 'сверкающая', 'светлая', 'светская', 'своевольная', 'своенравная', 
+				'святая', 'сексапильная', 'сексуальная', 'сенсационная', 'сердечная', 'серебряная', 'серьезная', 'симпатичная',
+				'сияющая', 'сказочная', 'скромная', 'славная', 'сладенькая', 'сладкая', 'сладкоголосая', 'сладостная', 'смелая', 'смешливая', 'сногсшибательная',
+				'соблазнительная', 'совершенная', 'сокровенная', 'сокрушительно эротичная', 'солнечная', 'сообразительная', 
+				'сочная', 'спелая', 'спокойная', 'способная', 'статная', 'стильная', 'страстная', 'стремительная', 'стройная', 'сумасшедшая', 
+				'суперская', 'таинственная', 'тактичная', 'талантливая', 'темпераментная', 'теплая', 'тёпленькая', 'тихая', 'толковая',
+				'томная', 'тоненькая', 'тонкая', 'требовательная', 'трепетная', 'трогательная', 'трудолюбивая', 'убедительная', 'убийственно-отпадная', 
+				'уверенная', 'увлекательная', 'удачливая', 'удивительная', 'улётная', 'улыбающаяся', 'улыбчивая', 'умелая', 'умная', 
+				'умненькая', 'умопомрачительная', 'уникальная', 'упоительная', 'упрямая', 'утонченная', 'утончённая', 'участливая', 
+				'фантастичная', 'феерическая', 'фееричная', 'феноменальная', 'флиртующая', 'харизматичная', 'хлебосольная',
+				'хозяйственная', 'хорошая', 'хорошенькая', 'хрупкая', 'хрустальная', 'царственная', 'цветущая', 'целеустремлённая', 'целительная', 
+				'чарующая', 'часто согрешающая', 'человечная', 'черноглазая', 'честная', 'честолюбивая', 'чистая', 'чистосердечная',
+				'чувственная', 'чувствительная', 'чудесная', 'чудная', 'чуткая', 'шаловливая', 'шальная', 'шикарная',
+				'шикующая', 'шипучая', 'шокирующая', 'шутливая', 'щедрая', 'экзотическая', 'экстравагантная', 'экстраклассная', 'экстремальная', 'элегантная', 
+				'эмоциональная', 'энергичная', 'эротичная', 'эфирная', 'эффектная', 'юморная', 'янтарная', 'яркая', 'ярчайшая', 'ясная', 'ясноглазая'];
+				
+				countElements = elements.length;
+				
+				document.getElementById('begtext').innerText = 'Молодец получи печеньку! Ты ' + elements[getRandomInt(countElements)] + ', ' + elements[getRandomInt(countElements)] + ', ' + 
+				 elements[getRandomInt(countElements)] + ', ' + elements[getRandomInt(countElements)] + ', ' + elements[getRandomInt(countElements)] + ', ' +
+				  elements[getRandomInt(countElements)] + ', ' + elements[getRandomInt(countElements)] + ', ' + elements[getRandomInt(countElements)] + ', ' +
+				  elements[getRandomInt(countElements)] + ', ' + elements[getRandomInt(countElements)] + ', ' + elements[getRandomInt(countElements)] + ', ' +
+				  elements[getRandomInt(countElements)] + ', ' + elements[getRandomInt(countElements)] + ', ' + elements[getRandomInt(countElements)] + ', ' +
+				   elements[getRandomInt(countElements)] + ', ' + elements[getRandomInt(countElements)] + ', ' + elements[getRandomInt(countElements)] + '!';
+				
+				
+				var firework = JS_FIREWORKS.Fireworks({
+					id : 'fireworks-canvas',
+					hue : 120,
+					particleCount : 1000,
+					delay : 0,
+					minDelay : 20,
+					maxDelay : 40,
+					boundaries : {
+						top: 10,
+						bottom: 10,
+						left: 50,
+						right: 590
+					},
+					fireworkSpeed : 0.1,
+					fireworkAcceleration : 1.05,
+					particleFriction : .95,
+					particleGravity : 0.5
+				});
+				
+				firework.start();
+			}
+		}
+		
+		
+		function getRandomInt(max) {
+			return Math.floor(Math.random() * Math.floor(max));
+		}
+		
+		
+		begtext.stop();
+		begtext.scrollLeft = window.innerWidth / 2;
+		
+		document.getElementById('fireworks-canvas').style.height = window.innerHeight - 670 + 'px';
+		
+		window.onload = function () {
+			var firework = JS_FIREWORKS.Fireworks({
+				id : 'fireworks-canvas',
+				hue : 120,
+				particleCount : 1000,
+				delay : 0,
+				minDelay : 20,
+				maxDelay : 40,
+				boundaries : {
+					top: 10,
+					bottom: 10,
+					left: 50,
+					right: 590
+				},
+				fireworkSpeed : 0.1,
+				fireworkAcceleration : 1.05,
+				particleFriction : .95,
+				particleGravity : 0.5
+			});
+			
+			
+		};
+	}
+</script>
+</html>	
